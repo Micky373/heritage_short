@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Heritage Short Storyboard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "style_block",
+    "characters",
+    "music",
+    "shots"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "language",
+        "target_duration_sec",
+        "aspect_ratios",
+        "end_card"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_duration_sec": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "aspect_ratios": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "9:16",
+              "16:9"
+            ]
+          }
+        },
+        "end_card": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "duration_sec",
+            "text"
+          ],
+          "properties": {
+            "duration_sec": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "style_block": {
+      "type": "string",
+      "minLength": 1
+    },
+    "characters": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "reference_image"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_image": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "music": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cue_id",
+        "caption",
+        "tempo_bpm",
+        "key",
+        "duration_sec",
+        "seed"
+      ],
+      "properties": {
+        "cue_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tempo_bpm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duration_sec": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shot_id",
+          "duration_sec",
+          "shot_type",
+          "reason",
+          "narration_am",
+          "narration_en",
+          "tts_style",
+          "keyframe_prompt",
+          "motion_prompt",
+          "camera_movement",
+          "seed"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration_sec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "shot_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration_am": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration_en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tts_style": {
+            "type": "string",
+            "minLength": 1
+          },
+          "keyframe_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "motion_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "camera_movement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}
