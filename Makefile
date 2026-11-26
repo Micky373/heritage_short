@@ -9,12 +9,10 @@ smoke:
 	$(PYTHON) -m pipeline.smoke_test
 
 narration:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "narration stage is validated; its processor is not implemented yet."
+	$(PYTHON) -m pipeline.narration
 
-radio-cut:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "radio-cut stage is validated; its processor is not implemented yet."
+radio-cut: narration
+	$(PYTHON) -m pipeline.radio_cut
 
 keyframes:
 	$(PYTHON) -m pipeline.utils validate

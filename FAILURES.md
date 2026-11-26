@@ -61,3 +61,29 @@ No API keys or tokens are recorded in this entry.
   behavior; retry the text smoke test after service demand subsides.
 
 No API keys or tokens are recorded in this entry.
+
+## Narration generation stopped at the Gemini TTS daily quota
+
+- **Symptom:** `make radio-cut` generated and cached narration for eight shots,
+  then failed on `shot_09` with HTTP `429`; the provider reported a free-tier
+  limit of 10 TTS requests per day. Since narration was incomplete, the radio
+  cut was not assembled.
+- **Cause:** The Gemini TTS daily request quota was exhausted before all nine
+  storyboard shots had audio.
+- **Resolution:** Wait for the provider quota to reset, then rerun
+  `make radio-cut`. Existing validated shot WAVs are cached, so the run resumes
+  from the missing narration instead of regenerating completed shots.
+
+No API keys or tokens are recorded in this entry.
+
+## Radio-cut rerun still blocked by TTS daily quota
+
+- **Symptom:** A rerun of `make radio-cut` reused the eight cached narration
+  clips, then received HTTP `429` while generating `shot_09`. The provider
+  reported approximately 23 hours and 35 minutes until the daily quota resets.
+- **Cause:** The Gemini TTS free-tier daily allowance was still exhausted, so
+  the missing ninth clip could not be generated and the MP4 was not assembled.
+- **Next step:** Retry `make radio-cut` after the quota reset; the eight existing
+  clips remain cached and should not be requested again.
+
+No API keys or tokens are recorded in this entry.
