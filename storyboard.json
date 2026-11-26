@@ -1,0 +1,157 @@
+{
+  "project": {
+    "title": "በስድስት ኪሎ የጠዋት እርምጃዎች (Morning Steps in Six Kilo)",
+    "language": "am",
+    "target_duration_sec": 75,
+    "aspect_ratios": ["9:16", "16:9"],
+    "end_card": {
+      "duration_sec": 3,
+      "text": "Created with AI | በሰው ሰራሽ አስተውሎት (AI) የተዘጋጀ"
+    }
+  },
+  "style_block": "Warm early morning golden hour light in Addis Ababa, Ethiopia, gentle cinematic realism, 35mm film grain, soft shadows, rich earthy tones, eucalyptus trees along a stone-paved street, centered subject composition safe for both 9:16 vertical and 16:9 horizontal framing, no text or watermarks in frame",
+  "characters": {
+    "father": {
+      "id": "char_father",
+      "description": "Ethiopian man in his late 30s, neat short black hair and trimmed mustache, warm encouraging expression, wearing a tweed blazer over a light button-down shirt, dark trousers, carrying a worn leather satchel",
+      "reference_image": "outputs/refs/character_sheet.png"
+    },
+    "young_son": {
+      "id": "char_son",
+      "description": "10-year-old Ethiopian boy, short curly black hair, bright curious eyes, wearing a neat blue school sweater over a white collared shirt, dark trousers, and a small canvas backpack",
+      "reference_image": "outputs/refs/character_sheet.png"
+    },
+    "adult_narrator": {
+      "id": "char_adult",
+      "description": "Ethiopian man in his late 20s, neat short black hair, calm focused expression, wearing a dark knit sweater",
+      "reference_image": "outputs/refs/character_sheet.png"
+    }
+  },
+  "music": {
+    "cue_id": "cue_main_score",
+    "caption": "Warm reflective acoustic instrumental score, gentle Ethiopian pentatonic melody on soft krar and warm acoustic piano, subtle ambient pads, hopeful and nostalgic mood, no vocals, unhurried morning rhythm",
+    "tempo_bpm": 82,
+    "key": "C major",
+    "duration_sec": 75,
+    "seed": 4201
+  },
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "duration_sec": 8,
+      "shot_type": "establishing_wide",
+      "reason": "Establish the 6 Kilo morning setting and the daily ritual of father and son leaving home together.",
+      "narration_am": "በስድስት ኪሎ ጠዋት ላይ ከአባቴ ጋር በእግር መሄድ የቀኔ መጀመሪያ ነበር።",
+      "narration_en": "Walking with my father in the morning in Six Kilo was the start of my day.",
+      "tts_style": "Warm, calm, nostalgic, unhurried storytelling pace",
+      "keyframe_prompt": "Wide establishing shot of an Ethiopian father in a tweed blazer with a leather satchel and his 10-year-old son in a blue school sweater walking side by side down a tree-lined street in 6 Kilo Addis Ababa at sunrise, soft morning mist",
+      "motion_prompt": "Camera gently tracks alongside father and son walking slowly forward down the sunlit street, soft breeze moving eucalyptus leaves",
+      "camera_movement": "slow_track_forward",
+      "seed": 1001
+    },
+    {
+      "shot_id": "shot_02",
+      "duration_sec": 9,
+      "shot_type": "medium_shot",
+      "reason": "Show the physical proximity of the school and university that shaped their shared route.",
+      "narration_am": "ቤታችን ቅርብ ስለነበር፣ እኔ ወደ ምስካየ ኅዙናን መድኃኔዓለም ትምህርት ቤት ስሄድ፣ እሱ ደግሞ ወደ ሚያስተምርበት ዩኒቨርሲቲ አብረን እንጓዝ ነበር።",
+      "narration_en": "Because our home was close by, as I headed to Miskaye Hizunan Medhanialem School and he walked toward the university where he lectured, we traveled together.",
+      "tts_style": "Warm, clear, steady narrative tone",
+      "keyframe_prompt": "Medium shot of the Ethiopian father and 10-year-old son walking past historic stone walls and tall trees near a school gate and university campus avenue in Addis Ababa, morning sunlight filtering through branches",
+      "motion_prompt": "Gentle dolly-in as the father gestures ahead toward the campus avenue while walking beside his son, natural subtle step motion",
+      "camera_movement": "gentle_dolly_in",
+      "seed": 1002
+    },
+    {
+      "shot_id": "shot_03",
+      "duration_sec": 8,
+      "shot_type": "medium_close_up",
+      "reason": "Reframe the walk from a simple commute into an informal outdoor classroom.",
+      "narration_am": "የጠዋቱ የእግር መንገድ ለእኔ የትምህርት ክፍል ነበር። አባቴ እንግሊዝኛዬን እና የሂሳብ ችሎታዬን ለማሳደግ ሁልጊዜ ይጥር ነበር።",
+      "narration_en": "The morning walk was a classroom for me. My father always strove to build my English and mathematics skills.",
+      "tts_style": "Affectionate, thoughtful, clear articulation",
+      "keyframe_prompt": "Medium close-up of the Ethiopian father looking down with a warm encouraging smile at his 10-year-old son as they walk together, soft morning golden rim light on their faces",
+      "motion_prompt": "Father turns his head slightly toward his son and speaks warmly, son nods attentively, subtle handheld walk motion",
+      "camera_movement": "subtle_handheld_follow",
+      "seed": 1003
+    },
+    {
+      "shot_id": "shot_04",
+      "duration_sec": 8,
+      "shot_type": "medium_shot",
+      "reason": "Illustrate the spoken English practice happening naturally in conversation.",
+      "narration_am": "በአንዳንድ ቀናት በእንግሊዝኛ እያወራን ቃላትን እና አነጋገርን እንለማመዳለን።",
+      "narration_en": "On some days we spoke in English, practicing vocabulary and pronunciation as we walked.",
+      "tts_style": "Engaged, rhythmic, conversational warmth",
+      "keyframe_prompt": "Medium two-shot at eye level of the 10-year-old Ethiopian boy speaking animatedly with a confident smile while his father listens intently and nods along the sunlit sidewalk",
+      "motion_prompt": "The boy gestures lightly with one hand while speaking, father smiles and replies gently, slow pan matching their stride",
+      "camera_movement": "slow_pan",
+      "seed": 1004
+    },
+    {
+      "shot_id": "shot_05",
+      "duration_sec": 9,
+      "shot_type": "close_up",
+      "reason": "Capture the mental math problem-solving beat and the visual motif of numbers on the walk.",
+      "narration_am": "በሌሎች ቀናት ደግሞ በእግር እየተራመድን የሂሳብ ጥያቄዎችን በአእምሮ እንፈታለን፤ ቁጥሮች ከጎዳናው ጋር የሚተሳሰሩ ይመስል ነበር።",
+      "narration_en": "On other days, we solved math problems in our heads while walking; it felt as if numbers were woven right into the street.",
+      "tts_style": "Curious, slightly playful, measured cadence",
+      "keyframe_prompt": "Close-up of the 10-year-old Ethiopian boy looking upward thoughtfully, counting on his fingers slightly while walking, dappled morning sunlight and soft geometric shadows on the stone pavement behind him",
+      "motion_prompt": "Slow push-in toward the boy's thoughtful face as his eyes brighten with an answer, gentle breeze in his hair",
+      "camera_movement": "slow_push_in",
+      "seed": 1005
+    },
+    {
+      "shot_id": "shot_06",
+      "duration_sec": 9,
+      "shot_type": "match_cut_medium",
+      "reason": "Bridge childhood walks to the present-day data science career through a visual transition.",
+      "narration_am": "ያኔ ቀላል የመሰሉኝ ጥያቄዎች እና የጠዋት ውይይቶች ዛሬ በዳታ ሳይንስ ዓለም ውስጥ መሠረት ሆነውኛል።",
+      "narration_en": "Those morning conversations and questions that seemed simple back then became my foundation in the world of data science today.",
+      "tts_style": "Reflective, grounded, building quiet pride",
+      "keyframe_prompt": "Medium shot of an Ethiopian data scientist in his late 20s seated beside a window in morning sunlight, looking at clean charts and Python data models on a laptop screen, warm wood desk",
+      "motion_prompt": "Camera slowly pushes in over the shoulder toward the glowing data visualizations on the laptop screen as morning light shifts gently",
+      "camera_movement": "slow_push_in",
+      "seed": 1006
+    },
+    {
+      "shot_id": "shot_07",
+      "duration_sec": 9,
+      "shot_type": "insert_closeup",
+      "reason": "Connect pattern recognition and calm problem-solving to competing on an international stage.",
+      "narration_am": "በመረጃ ውስጥ ንድፍ መፈለግ፣ በትዕግስት ማሰብ እና በዓለም አቀፍ መድረክ በራስ መተማመን መወዳደር የጀመርኩት ከዚያ የጠዋት ጉዞ ነው።",
+      "narration_en": "Finding patterns in data, thinking patiently, and competing with confidence on the international stage all began on that morning walk.",
+      "tts_style": "Confident, clear, purposeful",
+      "keyframe_prompt": "Close-up insert of hands resting near a laptop keyboard beside a notebook with neat mathematical sketches and a cup of Ethiopian coffee, soft morning light illuminating dust motes",
+      "motion_prompt": "Subtle camera tilt up from the handwritten math notes toward the glowing laptop screen, soft steam rising from the coffee cup",
+      "camera_movement": "subtle_tilt_up",
+      "seed": 1007
+    },
+    {
+      "shot_id": "shot_08",
+      "duration_sec": 8,
+      "shot_type": "medium_close_up",
+      "reason": "Show the emotional continuity of carrying the father's voice into present-day work.",
+      "narration_am": "ዛሬ በዳታ እና በኮድ ስራ መካከል ስሆን፣ የስድስት ኪሎ ጠዋት ነፋስ እና የአባቴ የማያቋርጥ ጥያቄዎች አብረውኝ ይጓዛሉ።",
+      "narration_en": "Today, surrounded by data and code, the morning breeze of Six Kilo and my father's endless questions still walk beside me.",
+      "tts_style": "Warm, resonant, heartfelt",
+      "keyframe_prompt": "Medium close-up of the Ethiopian data scientist in his late 20s looking out the window into the early morning light with a calm grateful smile, warm golden light across his face",
+      "motion_prompt": "Gentle slow push-in as he turns slightly toward the window light, subtle natural breathing and calm expression",
+      "camera_movement": "slow_push_in",
+      "seed": 1008
+    },
+    {
+      "shot_id": "shot_09",
+      "duration_sec": 7,
+      "shot_type": "wide_closing",
+      "reason": "Close the film with the core takeaway and visual motif of steady footsteps forward.",
+      "narration_am": "ምክንያቱም ትልቅ ራዕይ ብዙ ጊዜ የሚጀምረው በትናንሽ፣ ቋሚ እርምጃዎች ውስጥ ነው።",
+      "narration_en": "Because a great vision almost always begins in small, steady steps.",
+      "tts_style": "Slow, memorable, concluding warmth",
+      "keyframe_prompt": "Wide shot of a sunlit stone-lined street in 6 Kilo Addis Ababa in golden morning light with long quiet shadows stretching forward along the path, peaceful inspiring atmosphere",
+      "motion_prompt": "Slow gentle camera rise looking down the sunlit morning path as golden light warms the trees, fading smoothly at the end",
+      "camera_movement": "slow_crane_up",
+      "seed": 1009
+    }
+  ]
+}
