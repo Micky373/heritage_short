@@ -19,10 +19,17 @@ to each still. These are deterministic vector-style placeholders, not
 model-generated footage, and incur no API usage.
 `make music` creates a deterministic synthetic score in `outputs/music/` from
 the storyboard tempo, key, and duration. `make assemble` combines the moving
-shots, narration, and score into `outputs/film.mp4`; `make film` runs that full
-pipeline. `make radio-cut` generates any missing narration and assembles
-`outputs/radio_cut.mp4` with a black screen and the same local score. The media
-targets require `ffmpeg` and `ffprobe` on `PATH`.
+shots, narration, and score into two subtitled exports: `outputs/film.mp4`
+(16:9) and `outputs/film_9x16.mp4` (9:16). The closing three-second visual AI
+disclosure extends the 75 seconds of shots to a 78-second film; music continues
+under the card, and the score is ducked beneath narration. `make film` runs that
+full pipeline. `make radio-cut` generates any missing narration and assembles
+`outputs/radio_cut.mp4` with a black screen and the local score; the radio cut
+remains 75 seconds. The media targets require `ffmpeg` and `ffprobe` on `PATH`,
+with FFmpeg built with the `subtitles` filter and Noto Sans Ethiopic available
+through fontconfig. English subtitle cues are distributed proportionally across
+each Amharic narration clip's measured duration; review their alignment during
+the final edit.
 Narration requests are spaced 20 seconds apart by default for the Gemini free
 tier; set `GEMINI_TTS_MIN_INTERVAL_SEC` in `.env` to override the interval.
 The provider also enforces daily quotas; completed shot WAVs are cached so a run

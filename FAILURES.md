@@ -10,8 +10,6 @@
   `GEMINI_TEXT_MODEL=gemini-3.8-flash` in `.env` to make the selection explicit.
   Run `make smoke` to verify access with the current credentials.
 
-No API keys or tokens are recorded here. `.env` remains excluded by `.gitignore`.
-
 ## Gemini smoke test appeared to hang without progress
 
 - **Symptom:** `make smoke` could sit silently while waiting for a Gemini request;
@@ -34,8 +32,6 @@ No API keys or tokens are recorded here. `.env` remains excluded by `.gitignore`
   backoff, and retries only transient API statuses. It flushes progress before
   each request attempt so a stalled request is visible.
 
-No API keys or tokens are recorded here; `.env` remains ignored.
-
 ## `504 DEADLINE_EXCEEDED` during Gemini text smoke test
 
 - **Symptom:** `text-smoke` using `gemini-3.8-flash` returned
@@ -49,7 +45,15 @@ No API keys or tokens are recorded here; `.env` remains ignored.
   test still makes at most two attempts and prints the configured timeout before
   each stage, with flushed attempt progress.
 
-No API keys or tokens are recorded in this entry.
+## Initial dual-aspect film assembly failed in the audio filter graph
+
+- **Symptom:** `make assemble` stopped on the 9:16 export with an FFmpeg
+  `Stream specifier 'voiceext' ... matches no streams` error.
+- **Cause:** The filter graph connected the same filtered narration output to
+  both the sidechain compressor and final audio mixer without splitting it.
+- **Fix:** Split the extended narration stream into separate program and
+  sidechain inputs before ducking the score. Re-running `make assemble` should
+  reuse all cached narration, keyframes, moving shots, and music.
 
 
 ## Text timeout increase exposed temporary high demand
@@ -60,8 +64,6 @@ No API keys or tokens are recorded in this entry.
 - **TTS status:** `gemini-3.8-flash-tts` remained healthy and generated audio.
 - **Action:** Keep the 30-second text timeout and the bounded retry/backoff
   behavior; retry the text smoke test after service demand subsides.
-
-No API keys or tokens are recorded in this entry.
 
 ## Narration generation stopped at the Gemini TTS daily quota
 
@@ -75,8 +77,6 @@ No API keys or tokens are recorded in this entry.
   `make radio-cut`. Existing validated shot WAVs are cached, so the run resumes
   from the missing narration instead of regenerating completed shots.
 
-No API keys or tokens are recorded in this entry.
-
 ## Radio-cut rerun still blocked by TTS daily quota
 
 - **Symptom:** A rerun of `make radio-cut` reused the eight cached narration
@@ -87,8 +87,6 @@ No API keys or tokens are recorded in this entry.
 - **Next step:** Retry `make radio-cut` after the quota reset; the eight existing
   clips remain cached and should not be requested again.
 
-No API keys or tokens are recorded in this entry.
-
 ## Updated Gemini credentials allowed the final narration request
 
 - **Finding:** With the updated environment credentials, TTS returned audio for
@@ -97,8 +95,6 @@ No API keys or tokens are recorded in this entry.
 - **Fix:** Raised the pitch-preserving speed-fit cap to 1.20x and reran the
   missing narration. The final clip fit at 6.97 seconds; all nine clips then
   assembled successfully into the 75-second `outputs/radio_cut.mp4`.
-
-No API keys or tokens are recorded in this entry.
 
 ## Shot 09 closing narration initially exceeded its duration
 
@@ -109,8 +105,6 @@ No API keys or tokens are recorded in this entry.
   from slow to gently brisk. The regenerated narration is 4.76 seconds; all
   other shot clips were reused from cache and the 75-second radio cut rebuilt.
 
-No API keys or tokens are recorded in this entry.
-
 ## Amharic AI wording exceeded the closing shot on first generation
 
 - **Symptom:** The revised `shot_09` narration with Latin `AI` generated
@@ -118,8 +112,6 @@ No API keys or tokens are recorded in this entry.
 - **Fix:** Spelled the acronym in Amharic as `ኤአይ` and kept the concise
   disclosure. The regenerated narration is 4.67 seconds; shots 01–08 were
   reused from cache and the 75-second radio cut was rebuilt.
-
-No API keys or tokens are recorded in this entry.
 
 ## Local `slow_pan` motion render failed on an undefined FFmpeg variable
 
@@ -130,4 +122,3 @@ No API keys or tokens are recorded in this entry.
   use the known output frame count as their denominator; rerunning the stage
   reuses already-rendered clips and retries the failed shot.
 
-No API keys or tokens are recorded in this entry.

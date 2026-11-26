@@ -22,9 +22,13 @@ The score is a deterministic synthetic pentatonic bed; it is a placeholder, not
 a model-generated krar/piano recording. These stages use input-hash caching and
 do not make Gemini requests. Generated assets stay under ignored `outputs/`.
 
-The nine rendered clips and the assembled 75-second film were checked against
-the storyboard timing. The Amharic narration, including `shot_09`'s AI
-disclosure, remains unchanged; `make radio-cut` continues to provide the
-black-screen version with the same local score. The vector artwork and synthetic
-score are production placeholders; replace them with approved generated or
-recorded assets before treating the visuals or music as final.
+The nine rendered clips are checked against the storyboard timing. Assembly
+exports both 16:9 (`outputs/film.mp4`) and 9:16 (`outputs/film_9x16.mp4`)
+versions, burns in English subtitles from each shot's `narration_en`, and adds
+the three-second visual AI disclosure after the 75 seconds of shots. The final
+film is therefore 78 seconds; music continues under the end card and is ducked
+beneath the Amharic narration. `make radio-cut` remains a 75-second black-screen
+version. The Amharic narration, including `shot_09`'s spoken AI disclosure, is
+unchanged. The vector artwork and synthetic score are production placeholders;
+replace them with approved generated or recorded assets before treating the
+visuals or music as final.
