@@ -87,3 +87,25 @@ No API keys or tokens are recorded in this entry.
   clips remain cached and should not be requested again.
 
 No API keys or tokens are recorded in this entry.
+
+## Updated Gemini credentials allowed the final narration request
+
+- **Finding:** With the updated environment credentials, TTS returned audio for
+  `shot_09`, but its initial 8.19-second duration exceeded the 7-second shot
+  allocation and the previous 1.15x speed-fit cap, so validation rejected it.
+- **Fix:** Raised the pitch-preserving speed-fit cap to 1.20x and reran the
+  missing narration. The final clip fit at 6.97 seconds; all nine clips then
+  assembled successfully into the 75-second `outputs/radio_cut.mp4`.
+
+No API keys or tokens are recorded in this entry.
+
+## Shot 09 closing narration initially exceeded its duration
+
+- **Symptom:** After adding the AI disclosure, the first `shot_09` TTS read was
+  9.42 seconds for a 7-second slot. The duration guard rejected it, and the
+  existing clip was not replaced.
+- **Fix:** Shortened both language versions and changed the closing delivery
+  from slow to gently brisk. The regenerated narration is 4.76 seconds; all
+  other shot clips were reused from cache and the 75-second radio cut rebuilt.
+
+No API keys or tokens are recorded in this entry.

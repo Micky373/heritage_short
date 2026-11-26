@@ -10,8 +10,9 @@ The smoke test checks Gemini text and speech generation and appends call results
 
 Run `make validate` to validate `storyboard.json`, or `make smoke` to exercise the
 Gemini APIs. `make narration` generates one Amharic TTS WAV per shot in
-`outputs/narration/`, using input-hash caching and rejecting audio longer than its
-shot allocation. `make radio-cut` generates any missing narration, then assembles
+`outputs/narration/`, using input-hash caching and fitting small duration overruns
+with pitch-preserving speed adjustment; it rejects clips that exceed the fit cap.
+`make radio-cut` generates any missing narration, then assembles
 `outputs/radio_cut.mp4` with a black screen and a quiet synthetic placeholder
 music bed. Both targets require `ffmpeg` and `ffprobe` on `PATH`.
 Narration requests are spaced 20 seconds apart by default for the Gemini free
