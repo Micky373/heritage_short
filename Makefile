@@ -1,6 +1,6 @@
 PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 
-.PHONY: validate smoke narration radio-cut keyframes shots music assemble film
+.PHONY: validate smoke narration radio-cut reference-sheet keyframes shots music assemble film
 
 validate:
 	$(PYTHON) -m pipeline.utils validate
@@ -11,25 +11,22 @@ smoke:
 narration:
 	$(PYTHON) -m pipeline.narration
 
-radio-cut: narration
+radio-cut: narration music
 	$(PYTHON) -m pipeline.radio_cut
 
-keyframes:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "keyframes stage is validated; its processor is not implemented yet."
+reference-sheet:
+	$(PYTHON) -m pipeline.visuals reference-sheet
 
-shots:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "shots stage is validated; its processor is not implemented yet."
+keyframes: reference-sheet
+	$(PYTHON) -m pipeline.visuals keyframes
 
-music:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "music stage is validated; its processor is not implemented yet."
+shots: keyframes
+	$(PYTHON) -m pipeline.visuals shots
 
-assemble:
-	$(PYTHON) -m pipeline.utils validate
-	@echo "assemble stage is validated; its processor is not implemented yet."
+music: validate
+	$(PYTHON) -m pipeline.music
 
-film: narration radio-cut keyframes shots music assemble
-	$(PYTHON) -m pipeline.utils validate
-	@echo "Film pipeline stages are validated; stage processors are not implemented yet."
+assemble: narration shots music
+	$(PYTHON) -m pipeline.assemble
+
+film: assemble

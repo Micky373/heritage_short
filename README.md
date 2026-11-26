@@ -12,14 +12,22 @@ Run `make validate` to validate `storyboard.json`, or `make smoke` to exercise t
 Gemini APIs. `make narration` generates one Amharic TTS WAV per shot in
 `outputs/narration/`, using input-hash caching and fitting small duration overruns
 with pitch-preserving speed adjustment; it rejects clips that exceed the fit cap.
-`make radio-cut` generates any missing narration, then assembles
-`outputs/radio_cut.mp4` with a black screen and a quiet synthetic placeholder
-music bed. Both targets require `ffmpeg` and `ffprobe` on `PATH`.
+`make reference-sheet` creates a local illustrated character sheet at
+`outputs/refs/character_sheet.png`; `make keyframes` renders one 16:9 local
+illustration per storyboard shot; `make shots` applies a slow FFmpeg camera move
+to each still. These are deterministic vector-style placeholders, not
+model-generated footage, and incur no API usage.
+`make music` creates a deterministic synthetic score in `outputs/music/` from
+the storyboard tempo, key, and duration. `make assemble` combines the moving
+shots, narration, and score into `outputs/film.mp4`; `make film` runs that full
+pipeline. `make radio-cut` generates any missing narration and assembles
+`outputs/radio_cut.mp4` with a black screen and the same local score. The media
+targets require `ffmpeg` and `ffprobe` on `PATH`.
 Narration requests are spaced 20 seconds apart by default for the Gemini free
 tier; set `GEMINI_TTS_MIN_INTERVAL_SEC` in `.env` to override the interval.
 The provider also enforces daily quotas; completed shot WAVs are cached so a run
 can resume after quota resets without regenerating successful clips.
 
-The `keyframes`, `shots`, `music`, `assemble`, and `film` stages still need
-media-processing implementations.
+Reference sheets, keyframes, moving shots, and music use input-hash caching in
+`.cache/`; generated media is kept under the ignored `outputs/` directory.
 

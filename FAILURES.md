@@ -51,6 +51,7 @@ No API keys or tokens are recorded here; `.env` remains ignored.
 
 No API keys or tokens are recorded in this entry.
 
+
 ## Text timeout increase exposed temporary high demand
 
 - **Observation:** Raising the `gemini-3.8-flash` text timeout to `30000 ms`
@@ -107,5 +108,26 @@ No API keys or tokens are recorded in this entry.
 - **Fix:** Shortened both language versions and changed the closing delivery
   from slow to gently brisk. The regenerated narration is 4.76 seconds; all
   other shot clips were reused from cache and the 75-second radio cut rebuilt.
+
+No API keys or tokens are recorded in this entry.
+
+## Amharic AI wording exceeded the closing shot on first generation
+
+- **Symptom:** The revised `shot_09` narration with Latin `AI` generated
+  9.42 seconds of speech for a 7-second shot and failed the duration check.
+- **Fix:** Spelled the acronym in Amharic as `ኤአይ` and kept the concise
+  disclosure. The regenerated narration is 4.67 seconds; shots 01–08 were
+  reused from cache and the 75-second radio cut was rebuilt.
+
+No API keys or tokens are recorded in this entry.
+
+## Local `slow_pan` motion render failed on an undefined FFmpeg variable
+
+- **Symptom:** `make shots` rendered the first three clips, then FFmpeg failed
+  for `shot_04` with an undefined `d` expression in the `zoompan` filter.
+- **Cause and fix:** The filter expression referenced `d`, which is not a
+  supported `zoompan` expression variable. The pan and tilt coordinates now
+  use the known output frame count as their denominator; rerunning the stage
+  reuses already-rendered clips and retries the failed shot.
 
 No API keys or tokens are recorded in this entry.

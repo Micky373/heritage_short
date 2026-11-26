@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+from pipeline.music import DEFAULT_OUTPUT as DEFAULT_MUSIC
 from pipeline.narration import (
     DEFAULT_OUTPUT_DIR as DEFAULT_NARRATION_DIR,
     check_shot_duration,
@@ -22,10 +23,6 @@ DEFAULT_OUTPUT = ROOT / "outputs" / "radio_cut.mp4"
 FRAME_SIZE = "1280x720"
 FRAME_RATE = 24
 SAMPLE_RATE = 48_000
-PLACEHOLDER_MUSIC = (
-    "aevalsrc=0.10*sin(2*PI*130.81*t)+0.07*sin(2*PI*164.81*t)"
-    "+0.05*sin(2*PI*196.00*t):s=48000:d={duration}"
-)
 
 
 def _format_seconds(seconds: float) -> str:
@@ -40,9 +37,10 @@ def assemble_radio_cut(
     *,
     storyboard_path: str | Path = DEFAULT_STORYBOARD,
     narration_dir: str | Path = DEFAULT_NARRATION_DIR,
+    music_path: str | Path = DEFAULT_MUSIC,
     output_path: str | Path = DEFAULT_OUTPUT,
 ) -> Path:
-    """Render a black-screen MP4 with padded voice clips and placeholder music."""
+    """Render a black-screen MP4 with padded voice clips and local music."""
     storyboard = validate_storyboard(storyboard_path)
     ffmpeg = shutil.which("ffmpeg")
     if ffmpeg is None:
@@ -65,6 +63,13 @@ def assemble_radio_cut(
         narration_paths.append(audio_path)
 
     total_duration = sum(float(shot["duration_sec"]) for shot in shots)
+    music_file = Path(music_path)
+    if not music_file.is_absolute():
+        music_file = ROOT / music_file
+    if not music_file.is_file():
+        raise FileNotFoundError(
+            f"Missing local score: {music_file}; run `make music` first"
+        )
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary_path: str | None = None
@@ -91,14 +96,7 @@ def assemble_radio_cut(
         ]
         for path in narration_paths:
             ffmpeg_args.extend(["-i", str(path)])
-        ffmpeg_args.extend(
-            [
-                "-f",
-                "lavfi",
-                "-i",
-                PLACEHOLDER_MUSIC.format(duration=_format_seconds(total_duration)),
-            ]
-        )
+        ffmpeg_args.extend(["-i", str(music_file)])
 
         filter_parts: list[str] = []
         audio_labels: list[str] = []
@@ -118,7 +116,7 @@ def assemble_radio_cut(
         music_input_index = len(shots) + 1
         music_fade_start = max(0.0, total_duration - 1.0)
         filter_parts.append(
-            f"[{music_input_index}:a:0]volume=0.2,"
+            f"[{music_input_index}:a:0]volume=0.65,"
             f"afade=t=in:st=0:d=1,"
             f"afade=t=out:st={_format_seconds(music_fade_start)}:d=1,"
             f"aresample={SAMPLE_RATE},"
@@ -185,7 +183,7 @@ def assemble_radio_cut(
 
     print(
         f"Radio cut rendered: {output} ({total_duration:.2f}s, black screen, "
-        "placeholder music).",
+        "local synthetic score).",
         flush=True,
     )
     return output
@@ -195,12 +193,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Assemble narration radio cut")
     parser.add_argument("--storyboard", type=Path, default=DEFAULT_STORYBOARD)
     parser.add_argument("--narration-dir", type=Path, default=DEFAULT_NARRATION_DIR)
+    parser.add_argument("--music", type=Path, default=DEFAULT_MUSIC)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
     try:
         assemble_radio_cut(
             storyboard_path=args.storyboard,
             narration_dir=args.narration_dir,
+            music_path=args.music,
             output_path=args.output,
         )
     except Exception as error:
