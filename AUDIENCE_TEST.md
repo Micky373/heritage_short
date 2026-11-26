@@ -1,6 +1,6 @@
 # Near-final audience test
 
-**Status: screening completed; edit follow-up needs clarification.** On
+**Status: screening completed; visual recommendations recorded.** On
 2026-11-26, the user reported showing both the 16:9 and 9:16 exports to three
 viewers.
 
@@ -49,7 +49,10 @@ Follow-up action and rationale:
 - **Feedback theme:** All three viewers reportedly felt strongly connected to
   the story because they shared a similar background. The same reaction was
   reported for both aspect ratios; no format-specific difference was noted.
-- **Edits made in response:** None
+- **Constructive suggestions:** Make the images look more natural and use
+  actual moving video rather than camera movement applied to still images.
+- **Edits made in response:** None reported; these suggestions are recorded as
+  future visual improvements, not completed changes.
 - **Limitations:** Feedback was provided as a combined summary, not separate
   ratings or individual comments.
 

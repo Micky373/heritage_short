@@ -135,7 +135,7 @@ versions, what you expected, and a sanitized error excerpt. Do **not** attach
 | Document | What it covers |
 | --- | --- |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Pipeline stages and clean-clone workflow |
-| [DESIGN.md](./DESIGN.md) | Creative decisions and radio-cut listener feedback |
+| [DESIGN.md](./DESIGN.md) | Creative decisions and audience-test feedback |
 | [EXPERIMENTS.md](./EXPERIMENTS.md) | Measured results and limitations |
 | [COSTS.md](./COSTS.md) | API call counts and cost-accounting limits |
 | [ETHICS.md](./ETHICS.md) | Consent, privacy, disclosure, and asset provenance |

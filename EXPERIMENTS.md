@@ -51,9 +51,10 @@ the full film.
 `DESIGN.md` records qualitative feedback from three listeners on the radio cut.
 The user reports screening both near-final aspect ratios with three viewers on
 2026-11-26. They said all three felt strongly connected to the story because of
-their shared background, with the same reaction to both formats. No concrete
-edit resulting from this feedback has yet been specified; see
-`AUDIENCE_TEST.md`.
+their shared background, with the same reaction to both formats. Their
+constructive suggestions were more natural-looking images and actual moving
+video rather than camera motion over stills. No post-screening changes were
+reported; see `DESIGN.md` and `AUDIENCE_TEST.md`.
 
 No controlled visual-model or music-model comparison has been run. After an
 approved provider, budget, and asset rights are established, compare candidate
