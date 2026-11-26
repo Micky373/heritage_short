@@ -8,6 +8,13 @@ rendered illustrated stills, and a synthetic placeholder score. The stills are
 not model-generated footage, and the score is not a recorded instrument
 performance.
 
+![Morning Steps with my father project screenshot](./reports/screen_shot.jpg)
+
+## Project walkthrough
+
+Watch the [project walkthrough video](https://drive.google.com/file/d/1G4D_s4ilG44c9KcS4vubXQZ_Pk7ub0Q4/view?usp=sharing)
+on Google Drive.
+
 ## Film outputs
 
 | Output | Format | Runtime | Includes |
