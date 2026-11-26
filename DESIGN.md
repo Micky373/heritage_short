@@ -1,12 +1,12 @@
 ## Audience Test #1 (Radio Cut — `outputs/radio_cut.mp4`)
 
-* **Participants:** Tamirie Andualem (Father), Hirut Bazezew (Mother), H/Gabriel Tamirie (Brother)
+* **Participants:** Three listeners, anonymized here as Listener A, Listener B, and Listener C.
 * **Format:** 75-second radio cut (`outputs/radio_cut.mp4`) featuring the 9-shot Amharic narration track, ambient/placeholder backing, and closing AI disclosure on `shot_09`.
 
 ### Listener Takeaways
-* **Tamirie Andualem (Father):** Highlighted the emotional resonance of the Six Kilo morning walks, English/math practice on the move, and how those early habits carry into current data work; suggested smoothing brief pauses between shots and giving the closing AI statement a clean, unhurried finish.
-* **Hirut Bazezew (Mother):** Praised the warm, grounded tone and personal growth arc from early morning routines to international confidence; recommended keeping mid-cut pacing tight so the link to data science stays effortless to follow.
-* **H/Gabriel Tamirie (Brother):** Noted strong narrative focus and a clear bridge from everyday reasoning to data and code; suggested keeping inter-shot gaps brisk while preserving the clear closing AI disclosure.
+* **Listener A:** Highlighted the emotional resonance of the Six Kilo morning walks, English/math practice on the move, and how those early habits carry into current data work; suggested smoothing brief pauses between shots and giving the closing AI statement a clean, unhurried finish.
+* **Listener B:** Praised the warm, grounded tone and personal growth arc from early morning routines to international confidence; recommended keeping mid-cut pacing tight so the link to data science stays effortless to follow.
+* **Listener C:** Noted strong narrative focus and a clear bridge from everyday reasoning to data and code; suggested keeping inter-shot gaps brisk while preserving the clear closing AI disclosure.
 
 ### Storyboard & Cut Notes (`storyboard.json`)
 * Confirmed `shot_09` retains explicit AI disclosure (`"ይህ ፊልም በኤአይ ተዘጋጅቷል።"`) within its timing window without crowding the closing takeaway.

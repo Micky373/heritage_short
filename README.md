@@ -38,3 +38,12 @@ can resume after quota resets without regenerating successful clips.
 Reference sheets, keyframes, moving shots, and music use input-hash caching in
 `.cache/`; generated media is kept under the ignored `outputs/` directory.
 
+## Assignment evidence
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for the stage map, [DESIGN.md](./DESIGN.md)
+for the creative decisions and radio-cut feedback, [EXPERIMENTS.md](./EXPERIMENTS.md)
+for measured findings, [COSTS.md](./COSTS.md) for API usage and cost limitations,
+[ETHICS.md](./ETHICS.md) for consent/privacy/disclosure notes, and
+[AUDIENCE_TEST.md](./AUDIENCE_TEST.md) for the near-final screening record and
+the still-pending qualitative feedback.
+
