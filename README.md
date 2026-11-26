@@ -16,9 +16,9 @@ performance.
 | `outputs/film_9x16.mp4` | 9:16 | 78 sec | Portrait version of the same film |
 | `outputs/radio_cut.mp4` | 16:9 black screen | 75 sec | Amharic narration and score |
 
-Generated media is saved locally and excluded from Git. The film adds a
-three-second visual AI disclosure card after the 75 seconds of storyboard
-shots. The radio cut stays at 75 seconds.
+The built media is tracked in `outputs/` and available for direct download.
+The film adds a three-second visual AI disclosure card after the 75 seconds
+of storyboard shots. The radio cut stays at 75 seconds.
 
 ## Run it locally
 
@@ -140,3 +140,8 @@ versions, what you expected, and a sanitized error excerpt. Do **not** attach
 | [COSTS.md](./COSTS.md) | API call counts and cost-accounting limits |
 | [ETHICS.md](./ETHICS.md) | Consent, privacy, disclosure, and asset provenance |
 | [AUDIENCE_TEST.md](./AUDIENCE_TEST.md) | Near-final screening record and feedback |
+
+## Assignment reports
+
+The [`reports/`](./reports/) folder contains the assignment document and
+submitted report PDF(s).
