@@ -90,11 +90,38 @@ To try the radio cut instead:
 make radio-cut
 ```
 
+### Create a new Amharic story
+
+After installing dependencies and adding `GEMINI_API_KEY`, run:
+
+```sh
+make create-story
+```
+
+The command asks for a title and an Amharic story, generates a complete
+storyboard, validates it, saves the previous storyboard as
+`storyboard.previous.json`, and runs `make film`.
+
+For automation or to keep long stories in a text file:
+
+```sh
+.venv/bin/python -m pipeline.create_story \
+  --title "My Story" \
+  --story-file story.txt \
+  --shots 9 \
+  --duration 78
+```
+
+Use `--no-build` to generate and validate the storyboard without building the
+film. A custom storyboard replaces `storyboard.json`, and the previous version
+is retained as `storyboard.previous.json`.
+
 ## Useful commands
 
 | Command | What it does | Gemini API call? |
 | --- | --- | --- |
 | `make validate` | Validate `storyboard.json` against its schema | No |
+| `make create-story` | Generate a custom Amharic storyboard, validate it, and build the film | Yes |
 | `make smoke` | Test Gemini text and TTS connectivity; append results to `runs.jsonl` | Yes |
 | `make narration` | Generate/cache one Amharic narration clip per shot | Yes, if narration is uncached |
 | `make reference-sheet` | Render the local character reference sheet | No |

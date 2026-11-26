@@ -1,6 +1,6 @@
 PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 
-.PHONY: validate smoke narration radio-cut reference-sheet keyframes shots music assemble film
+.PHONY: validate smoke narration radio-cut reference-sheet keyframes shots music assemble film create-story
 
 validate:
 	$(PYTHON) -m pipeline.utils validate
@@ -30,3 +30,6 @@ assemble: narration shots music
 	$(PYTHON) -m pipeline.assemble
 
 film: assemble
+
+create-story:
+	$(PYTHON) -m pipeline.create_story

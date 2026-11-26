@@ -174,12 +174,13 @@ def _character_svg(kind: str, x: int, foot_y: int, scale: float = 1.0, gesture: 
 
 def _reference_svg(storyboard: dict[str, Any]) -> str:
     characters = list(storyboard["characters"].items())
+    project_title = str(storyboard["project"]["title"]).upper()
     body = [
         '<rect width="1920" height="1080" fill="#f3ead7"/>',
         '<rect x="74" y="58" width="1772" height="964" rx="38" '
         'fill="#fffaf0" stroke="#c8b99c" stroke-width="3"/>',
         '<text x="120" y="142" font-family="sans-serif" font-size="46" '
-        'font-weight="700" fill="#28332e">MORNING STEPS IN SIX KILO</text>',
+        f'font-weight="700" fill="#28332e">{html.escape(project_title[:55])}</text>',
         '<text x="120" y="190" font-family="sans-serif" font-size="25" '
         'fill="#6b705f">LOCAL CHARACTER REFERENCE · WARM DAWN PALETTE</text>',
     ]
