@@ -164,6 +164,8 @@ def retry_api_call(
     max_attempts: int = 3,
     base_delay_sec: float = 1.0,
     sleep: Callable[[float], None] = time.sleep,
+    should_retry: Callable[[Exception], bool] | None = None,
+    on_attempt: Callable[[int], None] | None = None,
 ) -> T:
     """Retry specified API exceptions with exponential backoff."""
     if max_attempts < 1:
@@ -174,10 +176,14 @@ def retry_api_call(
         raise ValueError("retryable_exceptions cannot be empty")
 
     for attempt in range(max_attempts):
+        if on_attempt is not None:
+            on_attempt(attempt + 1)
         try:
             return operation()
-        except retryable_exceptions:
-            if attempt == max_attempts - 1:
+        except retryable_exceptions as error:
+            if attempt == max_attempts - 1 or (
+                should_retry is not None and not should_retry(error)
+            ):
                 raise
             sleep(base_delay_sec * (2**attempt))
     raise RuntimeError("API retry loop exited unexpectedly")
